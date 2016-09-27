@@ -1,0 +1,17 @@
+nginx:
+  image: mosaink_proxy
+  restart: always
+  links:
+    - tile_server
+  ports:
+    - "80:80"
+
+tile_server:
+  image: tile_server
+  restart: always
+  ports:
+    - "8080:8080"
+
+tile_worker:
+  image: tile_worker
+  restart: always
